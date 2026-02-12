@@ -1,47 +1,35 @@
-// Smooth Scroll
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"})
 }
 
-// Typing Effect
-const words = ["Secure Web Applications", "Powerful Financial Systems", "Scalable Backend APIs"];
-let wordIndex = 0;
-let charIndex = 0;
-const typingElement = document.getElementById("typing");
+/* Fade Reveal */
+const faders=document.querySelectorAll(".fade-up");
+const appearOptions={threshold:0.2};
 
-function type() {
-    if (charIndex < words[wordIndex].length) {
-        typingElement.textContent += words[wordIndex][charIndex];
-        charIndex++;
-        setTimeout(type, 50);
-    } else {
-        setTimeout(erase, 1500);
-    }
+const appearOnScroll=new IntersectionObserver(function(entries,observer){
+entries.forEach(entry=>{
+if(!entry.isIntersecting)return;
+entry.target.classList.add("show");
+observer.unobserve(entry.target);
+});
+},appearOptions);
+
+faders.forEach(fader=>appearOnScroll.observe(fader));
+
+/* Counter */
+const counters=document.querySelectorAll('.stat h3');
+
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.getAttribute('data-target');
+const c=+counter.innerText;
+const increment=target/100;
+if(c<target){
+counter.innerText=Math.ceil(c+increment);
+setTimeout(update,20);
+}else{
+counter.innerText=target;
 }
-
-function erase() {
-    if (charIndex > 0) {
-        typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, 30);
-    } else {
-        wordIndex = (wordIndex + 1) % words.length;
-        setTimeout(type, 300);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", type);
-
-// Scroll Reveal Animation
-const reveals = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll", () => {
-    reveals.forEach(reveal => {
-        const windowHeight = window.innerHeight;
-        const revealTop = reveal.getBoundingClientRect().top;
-        if (revealTop < windowHeight - 100) {
-            reveal.style.opacity = 1;
-            reveal.style.transform = "translateY(0)";
-        }
-    });
+};
+update();
 });
