@@ -234,3 +234,16 @@ border:none;
 background:#00f5a0;
 cursor:pointer;
 }
+.form-message {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.form-message.success {
+    color: #00f5a0; /* greenish for success */
+}
+
+.form-message.error {
+    color: #f43f5e; /* red for error */
+}

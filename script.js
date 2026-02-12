@@ -34,6 +34,7 @@ counter.innerText=target;
 update();
 });
 const form = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -42,16 +43,31 @@ form.addEventListener("submit", async (e) => {
     const email = form.querySelector("input[type='email']").value;
     const message = form.querySelector("textarea").value;
 
-    const res = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message })
-    });
+    try {
+        const res = await fetch("http://localhost:5000/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message })
+        });
 
-    const data = await res.json();
-    alert(data.message);
-    form.reset();
+        const data = await res.json();
+
+        if (res.ok) {
+            formMessage.textContent = "Message sent successfully! You will get a reply soon.";
+            formMessage.className = "form-message success";
+            form.reset();
+        } else {
+            formMessage.textContent = "Failed to send. Try again later.";
+            formMessage.className = "form-message error";
+        }
+
+    } catch (err) {
+        console.error(err);
+        formMessage.textContent = "Failed to send. Try again later.";
+        formMessage.className = "form-message error";
+    }
 });
+
 
 async function sendMessage(){
     const input = document.getElementById("chatInput");
