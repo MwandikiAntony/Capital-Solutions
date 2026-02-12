@@ -69,21 +69,59 @@ form.addEventListener("submit", async (e) => {
 });
 
 
-async function sendMessage(){
-    const input = document.getElementById("chatInput");
-    const messages = document.getElementById("chatMessages");
+const chatbot = document.getElementById("chatbot");
+const chatHeader = document.getElementById("chatHeader");
+const chatInput = document.getElementById("chatInput");
+const chatMessages = document.getElementById("chatMessages");
+const sendBtn = document.getElementById("sendBtn");
 
-    const userMessage = input.value;
-    messages.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+// Toggle chat open/close
+chatHeader.addEventListener("click", () => {
+    chatbot.classList.toggle("active");
+});
 
-    const res = await fetch("http://localhost:5000/api/chat",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({message:userMessage})
-    });
+// Send message function
+async function sendMessage() {
+    const userMessage = chatInput.value.trim();
+    if (!userMessage) return;
 
-    const data = await res.json();
-    messages.innerHTML += `<div><strong>AI:</strong> ${data.reply}</div>`;
+    addMessage("You", userMessage);
 
-    input.value="";
+    chatInput.value = "";
+
+    try {
+        const res = await fetch("http://localhost:5000/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: userMessage })
+        });
+
+        const data = await res.json();
+        addMessage("AI", data.reply);
+
+    } catch (err) {
+        console.error(err);
+        addMessage("AI", "Sorry, something went wrong. Try again later.");
+    }
 }
+
+// Add message to chat box
+function addMessage(sender, text) {
+    const msgDiv = document.createElement("div");
+    msgDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    chatMessages.appendChild(msgDiv);
+
+    // Auto scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Button click
+sendBtn.addEventListener("click", sendMessage);
+
+// Enter key to send
+chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        sendMessage();
+    }
+});
+
