@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capital Solutions | CEO Antony Mwandiki</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Capital Solutions - Professional Web Development & Financial Systems by Antony Mwandiki.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="container nav">
+        <h1 class="logo">Capital<span>Solutions</span></h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact" class="btn-nav">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h2>We Build</h2>
+        <h1><span id="typing"></span></h1>
+        <p>Scalable, secure and premium digital systems for businesses and institutions.</p>
+        <div class="hero-buttons">
+            <button onclick="scrollToSection('services')">Our Services</button>
+            <button class="outline" onclick="scrollToSection('contact')">Hire Us</button>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+    <h2 class="section-title">Our Expertise</h2>
+    <div class="cards">
+
+        <div class="card reveal">
+            <h3>Web Development</h3>
+            <p>Modern responsive applications built for performance and scalability.</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>REST API Systems</h3>
+            <p>Secure backend architecture with authentication and validation.</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>Fintech Platforms</h3>
+            <p>Investment systems, lending platforms and financial dashboards.</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>System Architecture</h3>
+            <p>Database design, cloud deployment and scalable infrastructure.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section dark">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="cards">
+
+        <div class="card reveal">
+            <h3>Secure Voting Platform</h3>
+            <p>Authentication, role management and real-time results system.</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>Lending Bank System</h3>
+            <p>Loan processing, client tracking and approval workflow.</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>Student Portal</h3>
+            <p>Multi-step applications with document uploads and validation.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2 class="section-title">Let’s Build Something Powerful</h2>
+
+    <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <p id="formMessage"></p>
+</section>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/254XXXXXXXXX" class="whatsapp" target="_blank">
+    💬
+</a>
+
+<footer>
+    <p>© 2026 Capital Solutions | CEO Antony Mwandiki</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
