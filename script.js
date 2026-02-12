@@ -33,3 +33,41 @@ counter.innerText=target;
 };
 update();
 });
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = form.querySelector("input[type='text']").value;
+    const email = form.querySelector("input[type='email']").value;
+    const message = form.querySelector("textarea").value;
+
+    const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message })
+    });
+
+    const data = await res.json();
+    alert(data.message);
+    form.reset();
+});
+
+async function sendMessage(){
+    const input = document.getElementById("chatInput");
+    const messages = document.getElementById("chatMessages");
+
+    const userMessage = input.value;
+    messages.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+
+    const res = await fetch("http://localhost:5000/api/chat",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({message:userMessage})
+    });
+
+    const data = await res.json();
+    messages.innerHTML += `<div><strong>AI:</strong> ${data.reply}</div>`;
+
+    input.value="";
+}

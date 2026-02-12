@@ -152,7 +152,8 @@
     <div class="container">
         <h2 class="section-title fade-up">Contact</h2>
 
-        <form class="contact-form fade-up">
+        <form class="contact-form fade-up" id="contactForm">
+
             <input type="text" placeholder="Full Name" required>
             <input type="email" placeholder="Email Address" required>
             <textarea placeholder="Project Details" required></textarea>
@@ -166,5 +167,14 @@
 </footer>
 
 <script src="script.js"></script>
+<div class="chatbot">
+    <div class="chat-header">Capital AI</div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Ask something...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
 </body>
 </html>
