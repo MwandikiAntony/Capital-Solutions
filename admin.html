@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard - Capital Solutions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="admin">
+  <h1>Create New Insight</h1>
+
+  <form id="postForm">
+    <input type="text" placeholder="Title" id="title" required>
+    <input type="text" placeholder="Excerpt" id="excerpt" required>
+    <input type="text" placeholder="Image URL" id="image">
+    <textarea placeholder="Full Content" id="content" rows="8" required></textarea>
+    <button type="submit">Publish Article</button>
+  </form>
+
+  <p id="response"></p>
+</section>
+
+<script>
+document.getElementById("postForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const post = {
+    title: title.value,
+    excerpt: excerpt.value,
+    content: content.value,
+    image: image.value
+  };
+
+  const res = await fetch("http://localhost:5000/api/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(post)
+  });
+
+  const data = await res.json();
+  document.getElementById("response").innerText = data.message || data.error;
+});
+</script>
+
+</body>
+</html>

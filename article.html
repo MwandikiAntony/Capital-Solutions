@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article | Capital Solutions</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header id="navbar">
+  <div class="container nav">
+    <div class="logo">
+      Capital<span>Solutions</span>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../insights.html" class="active">Insights</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact" class="nav-cta">Get Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<section class="article-hero">
+    <div class="container">
+        <span class="category">FinTech Architecture</span>
+        <h1>Designing Secure FinTech Platforms at Scale</h1>
+        <p class="article-meta">By Capital Solutions • March 2026</p>
+    </div>
+</section>
+
+<section class="article-content">
+    <div class="container article-wrapper">
+
+        <p>
+            Building enterprise financial systems requires careful architectural
+            planning, transaction integrity modeling and layered security design...
+        </p>
+
+        <h2>1. Security-First Infrastructure</h2>
+        <p>
+            Encryption, authentication layers, token validation and zero-trust architecture
+            form the foundation of scalable fintech systems.
+        </p>
+
+        <h2>2. Scalable Transaction Handling</h2>
+        <p>
+            Queue systems, load balancing, horizontal scaling and database optimization
+            ensure consistent high-volume processing.
+        </p>
+
+        <h2>3. Regulatory & Compliance Considerations</h2>
+        <p>
+            Financial systems must adhere to data protection, KYC and compliance frameworks
+            relevant to jurisdictional requirements.
+        </p>
+
+    </div>
+</section>
+
+<script>
+async function loadArticle() {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug");
+
+    const res = await fetch(`http://localhost:5000/api/posts/${slug}`);
+    const post = await res.json();
+
+    document.querySelector(".article-hero h1").innerText = post.title;
+    document.querySelector(".article-meta").innerText =
+        `By ${post.author} • ${new Date(post.createdAt).toDateString()}`;
+
+    document.querySelector(".article-wrapper").innerHTML =
+        post.content;
+}
+
+loadArticle();
+</script>
+
+
+<footer>
+    © 2026 Capital Solutions. All Rights Reserved.
+</footer>
+
+</body>
+</html>

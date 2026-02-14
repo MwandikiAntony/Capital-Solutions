@@ -444,3 +444,35 @@ transform:translateY(0)
     font-size: 2rem;
     margin: 20px 0;
 }
+/* ===== ARTICLE PAGE ===== */
+
+.article-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+}
+
+.article-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin: 20px 0;
+}
+
+.article-meta {
+    color: #cbd5e1;
+}
+
+.article-wrapper {
+    max-width: 800px;
+    margin: auto;
+    padding-bottom: 120px;
+}
+
+.article-wrapper h2 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.article-wrapper p {
+    line-height: 1.8;
+    color: #cbd5e1;
+}
