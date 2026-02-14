@@ -216,51 +216,6 @@
     </div>
 </section>
 
-<section class="insights-section">
-    <div class="container">
-
-        <div class="insights-grid">
-
-            <div class="insight-card">
-                <div>
-                    <div class="insight-meta">March 2026 • Architecture</div>
-                    <h3>Designing Secure FinTech Platforms at Scale</h3>
-                    <p>
-                        Key principles behind building scalable financial systems
-                        that handle high-volume transactions securely.
-                    </p>
-                </div>
-                <a href="https://openforge.io/fintech-app-development-building-secure-financial-apps-that-scale/" class="read-more">Read Article →</a>
-            </div>
-
-            <div class="insight-card">
-                <div>
-                    <div class="insight-meta">February 2026 • Backend Systems</div>
-                    <h3>REST API Best Practices for Enterprise Systems</h3>
-                    <p>
-                        How structured APIs improve maintainability, performance
-                        and long-term system scalability.
-                    </p>
-                </div>
-                <a href="https://restfulapi.net/" class="read-more">Read Article →</a>
-            </div>
-
-            <div class="insight-card">
-                <div>
-                    <div class="insight-meta">January 2026 • Cloud</div>
-                    <h3>Cloud Deployment Strategies for High-Growth Companies</h3>
-                    <p>
-                        Evaluating hosting environments, scaling methods,
-                        and performance monitoring for production systems.
-                    </p>
-                </div>
-                <a href="https://octopus.com/devops/cloud-deployment/" class="read-more">Read Article →</a>
-            </div>
-
-        </div>
-
-    </div>
-</section>
 <section id="insights" class="section">
   <div class="container" id="postsContainer"></div>
 </section>
@@ -275,10 +230,16 @@ async function loadPosts() {
 
   posts.forEach(post => {
     container.innerHTML += `
-      <div class="card fade-up">
+      <div class="insight-card">
+        <img src="${post.image || 'https://via.placeholder.com/600x300'}" 
+             style="width:100%; border-radius:12px; margin-bottom:15px;">
         <h3>${post.title}</h3>
         <p>${post.excerpt}</p>
-        <a href="article.html?id=${post._id}">Read More</a>
+        <small>By ${post.author} | ${new Date(post.createdAt).toDateString()}</small>
+        <br><br>
+        <a class="read-more" href="article.html?id=${post._id}">
+          Read Article →
+        </a>
       </div>
     `;
   });
@@ -286,6 +247,7 @@ async function loadPosts() {
 
 loadPosts();
 </script>
+
 
 
 <section class="newsletter-section">
@@ -302,30 +264,6 @@ loadPosts();
         </form>
     </div>
 </section>
-<div id="postsContainer"></div>
-
-<script>
-async function loadPosts() {
-  const res = await fetch("http://localhost:5000/api/posts");
-  const posts = await res.json();
-
-  const container = document.getElementById("postsContainer");
-  container.innerHTML = "";
-
-  posts.forEach(post => {
-    container.innerHTML += `
-      <div class="insight-card">
-        <img src="${post.image || 'https://via.placeholder.com/600x300'}">
-        <h2>${post.title}</h2>
-        <p>${post.excerpt}</p>
-        <small>By ${post.author} | ${new Date(post.createdAt).toDateString()}</small>
-      </div>
-    `;
-  });
-}
-
-loadPosts();
-</script>
 
 
 

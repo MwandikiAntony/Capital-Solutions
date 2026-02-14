@@ -15,50 +15,15 @@
       Capital<span>Solutions</span>
     </div>
     <nav class="nav-links">
-      <a href="../index.html">Home</a>
-      <a href="../insights.html" class="active">Insights</a>
-      <a href="../about.html">About</a>
+      <a href="../index.html" class="nav-item">Home</a>
+      <a href="../insights.html" class="nav-item class="active">Insights</a>
+      <a href="../about.html" class="nav-item">About</a>
       <a href="../index.html#contact" class="nav-cta">Get Consultation</a>
     </nav>
   </div>
 </header>
 
-<section class="article-hero">
-    <div class="container">
-        <span class="category">FinTech Architecture</span>
-        <h1>Designing Secure FinTech Platforms at Scale</h1>
-        <p class="article-meta">By Capital Solutions • March 2026</p>
-    </div>
-</section>
 
-<section class="article-content">
-    <div class="container article-wrapper">
-
-        <p>
-            Building enterprise financial systems requires careful architectural
-            planning, transaction integrity modeling and layered security design...
-        </p>
-
-        <h2>1. Security-First Infrastructure</h2>
-        <p>
-            Encryption, authentication layers, token validation and zero-trust architecture
-            form the foundation of scalable fintech systems.
-        </p>
-
-        <h2>2. Scalable Transaction Handling</h2>
-        <p>
-            Queue systems, load balancing, horizontal scaling and database optimization
-            ensure consistent high-volume processing.
-        </p>
-
-        <h2>3. Regulatory & Compliance Considerations</h2>
-        <p>
-            Financial systems must adhere to data protection, KYC and compliance frameworks
-            relevant to jurisdictional requirements.
-        </p>
-
-    </div>
-</section>
 <section class="article container" id="articleContent"></section>
 
 <script>
@@ -71,36 +36,23 @@ async function loadArticle() {
 
   const container = document.getElementById("articleContent");
   container.innerHTML = `
-    <h1>${post.title}</h1>
-    <img src="${post.image}" alt="${post.title}" style="width:100%; border-radius:12px; margin-bottom:20px;">
-    <p>${post.content}</p>
-    <small>By ${post.author} | ${new Date(post.createdAt).toLocaleDateString()}</small>
-  `;
+  <h1>${post.title}</h1>
+
+  <img src="${post.image}" alt="${post.title}">
+
+  <div class="article-body">
+    ${post.content}
+  </div>
+
+  <small>
+    By ${post.author} • ${new Date(post.createdAt).toDateString()}
+  </small>
+`;
+
 }
 
 loadArticle();
 </script>
-
-
-<script>
-async function loadArticle() {
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get("slug");
-
-    const res = await fetch(`http://localhost:5000/api/posts/${slug}`);
-    const post = await res.json();
-
-    document.querySelector(".article-hero h1").innerText = post.title;
-    document.querySelector(".article-meta").innerText =
-        `By ${post.author} • ${new Date(post.createdAt).toDateString()}`;
-
-    document.querySelector(".article-wrapper").innerHTML =
-        post.content;
-}
-
-loadArticle();
-</script>
-
 
 <footer>
     © 2026 Capital Solutions. All Rights Reserved.
