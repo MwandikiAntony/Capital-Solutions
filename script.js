@@ -134,5 +134,29 @@ window.addEventListener("scroll", () => {
         navbar.classList.remove("shrink");
     }
 });
+const sections = document.querySelectorAll("section[id]");
+const navItems = document.querySelectorAll(".nav-item");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+
+        if (scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navItems.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
+
+});
 
 
