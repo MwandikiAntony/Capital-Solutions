@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Capital Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* ===== ABOUT PAGE STYLES ===== */
+
+.about-hero {
+    padding: 160px 0 100px;
+    text-align: center;
+    background: radial-gradient(circle at top, rgba(0,245,160,0.15), transparent 60%);
+}
+
+.about-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-hero p {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #cbd5e1;
+}
+
+.mission-section {
+    padding: 120px 0;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.mission-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.mission-text p {
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+.mission-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.values-section {
+    padding: 120px 0;
+    background: #0b1120;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 40px;
+}
+
+.value-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0,245,160,0.3);
+}
+
+.leadership-section {
+    padding: 120px 0;
+}
+
+.leader-card {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(255,255,255,0.03);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.leader-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.leader-card span {
+    color: #00f5a0;
+    font-weight: 500;
+}
+
+@media(max-width: 992px){
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="navbar">
+  <div class="container nav">
+
+    <div class="logo">
+      Capital<span>Solutions</span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-item">Home</a>
+      <div class="mega-dropdown">
+         
+        <a href="#services" class="nav-item">Solutions</a>
+
+        <div class="mega-menu">
+          <div class="mega-column">
+            <h4>Engineering</h4>
+            <a href="#services">Enterprise Web Systems</a>
+            <a href="#services">API Architecture</a>
+            <a href="#services">Cloud Infrastructure</a>
+          </div>
+
+          <div class="mega-column">
+            <h4>Financial Systems</h4>
+            <a href="#services">FinTech Platforms</a>
+            <a href="#services">Payment Systems</a>
+            <a href="#services">Digital Lending</a>
+          </div>
+
+          <div class="mega-column">
+            <h4>Consulting</h4>
+            <a href="#process">System Design</a>
+            <a href="#process">Deployment Strategy</a>
+            <a href="#contact">Technical Advisory</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="#portfolio" class="nav-item">Case Studies</a>
+      <a href="about.html" class="nav-item">About</a>
+      <a href="#" class="nav-item">Insights</a>
+
+      <a href="#contact" class="nav-contact">Contact</a>
+      <a href="#contact" class="nav-cta">Get Consultation</a>
+
+    </nav>
+
+    <!-- Mobile Toggle -->
+    <div class="menu-toggle" id="menuToggle">
+      ☰
+    </div>
+
+  </div>
+</header>
+
+<section class="about-hero">
+    <div class="container">
+        <h1>Engineering The Future of Digital & Financial Systems</h1>
+        <p>
+            Capital Solutions is a technology engineering firm focused on building secure,
+            scalable and performance-driven digital infrastructure for enterprises,
+            financial institutions and high-growth organizations.
+        </p>
+    </div>
+</section>
+
+<section class="mission-section">
+    <div class="container mission-grid">
+
+        <div class="mission-text">
+            <h2>Our Mission</h2>
+            <p>
+                To design and deploy robust digital systems that empower organizations 
+                to scale confidently. We specialize in building enterprise-grade platforms, 
+                secure APIs and financial technology solutions that stand the test of time.
+            </p>
+            <br>
+            <p>
+                Every solution is engineered with long-term architecture, security-first 
+                design principles and operational excellence in mind.
+            </p>
+        </div>
+
+        <div class="mission-card">
+            <h3>What Defines Us</h3>
+            <p>✔ Security-First Architecture</p>
+            <p>✔ Scalable Engineering Systems</p>
+            <p>✔ Clean & Maintainable Code</p>
+            <p>✔ Enterprise-Level Standards</p>
+            <p>✔ Long-Term Strategic Thinking</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="values-section">
+    <div class="container">
+        <h2 class="section-title">Core Principles</h2>
+
+        <div class="values-grid">
+
+            <div class="value-card">
+                <h3>Precision</h3>
+                <p>
+                    Every line of code is deliberate, structured and production-ready.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <h3>Integrity</h3>
+                <p>
+                    We build systems that clients can trust with sensitive data and mission-critical operations.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <h3>Innovation</h3>
+                <p>
+                    We apply modern frameworks and evolving technologies responsibly and strategically.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="leadership-section">
+    <div class="container">
+
+        <div class="leader-card">
+            <h3>Antony Mwandiki</h3>
+            <span>Founder & Chief Executive Officer</span>
+            <p style="margin-top:20px; color:#cbd5e1;">
+                With a background in full stack engineering and system architecture,
+                Antony leads Capital Solutions with a focus on enterprise-grade development,
+                fintech innovation and scalable backend systems.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Partner With Capital Solutions</h2>
+    <button onclick="window.location.href='index.html#contact'">
+        Start a Consultation
+    </button>
+</section>
+
+<footer>
+    © 2026 Capital Solutions. All Rights Reserved.
+</footer>
+
+</body>
+</html>
