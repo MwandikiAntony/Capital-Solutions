@@ -421,3 +421,26 @@ transform:translateY(0)
 .form-message.error {
     color: #f43f5e; /* red for error */
 }
+/* ===== FEATURED INSIGHT ===== */
+
+.featured-insight {
+    padding: 120px 0;
+}
+
+.featured-grid {
+    background: rgba(255,255,255,0.03);
+    border-radius: 25px;
+    padding: 60px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.featured-text .category {
+    color: #00f5a0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.featured-text h2 {
+    font-size: 2rem;
+    margin: 20px 0;
+}
