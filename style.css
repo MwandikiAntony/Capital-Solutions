@@ -531,6 +531,44 @@ transform:translateY(0)
   margin-bottom: 20px;       
   line-height: 1;             
 }
+/* ================= SCROLL ANIMATIONS ================= */
+
+/* Base hidden state */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(.2,.65,.3,1);
+}
+
+/* Visible state */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.9s cubic-bezier(.2,.65,.3,1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide from right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 0.9s cubic-bezier(.2,.65,.3,1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
 /* Services Grid */
 
 .cards-grid {
